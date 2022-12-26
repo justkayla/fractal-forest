@@ -18,7 +18,12 @@ function setup() {
   angleMode(DEGREES);
 }
 
+// draw the rest of the tree
 function drawTree(tree, tree2) {
+  /**
+   * Where do I establish how many trees are in the TREES array?
+   */
+
   // tree
   for (let i = tree.length - 1; i >= 0; i--) {
     if (!tree[i].finished) {
@@ -58,8 +63,20 @@ function drawTree(tree, tree2) {
   count++;
 }
 
+// initialize tree
 function setUpTree(tree, tree2) {
-  let a = createVector(width / 2, height);
+  /**
+   * For every tree in the TREES array,
+   * initialize a root/trunk at
+   * let a = createVector(width / 5, height);
+   * let b = createVector(width / 5, height - 200);
+   * let root = new Branch(a, b);
+   * trees[0] = root;
+   *
+   * Will this work?
+   */
+
+  let a = createVector(width / 2, height + 100);
   let b = createVector(width / 2, height - 200);
   let c = createVector(width / 3, height);
   let d = createVector(width / 3, height - 200);
@@ -69,6 +86,7 @@ function setUpTree(tree, tree2) {
   tree2[0] = root2;
 }
 
+// draw tree on mouse press
 function mousePressed() {
   if (tree[0] && tree2[0]) {
     drawTree(tree, tree2);
